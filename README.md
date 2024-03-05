@@ -1,12 +1,12 @@
 # bike-rental-prediction
 
 ## Escolha o Idioma / Choose Language
-- [English](#english)
-- [Português](#português)
+- [English](#rental-bike-prediction)
+- [Português](#predição-de-aluguel-de-bicicletas)
 
 ## Versão em Português
 
-## Predição de Aluguel de Bicicletas {#português}
+## Predição de Aluguel de Bicicletas
 
 ## Visão Geral
 
@@ -118,7 +118,7 @@ O aprendizado de máquina automatizado permite que você experimente vários alg
 ##________________________________________________________________________________________________________________________________
 ## English Version
 
-## Rental Bike Prediction {#english}
+## Rental Bike Prediction
 
 ## Overview
 
