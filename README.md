@@ -16,12 +16,12 @@ Este repositório contém materiais para o módulo Microsoft Learn sobre Fundame
 
 ## Sumário
   - [Explorando o Aprendizado de Máquina Automatizado no Azure Machine Learning](#explorando-o-aprendizado-de-máquina-automatizado-no-azure-machine-learning)
-  - [Passo 1: Criar um Espaço de Trabalho no Azure Machine Learning](#passo-1:-criar-um-espaço-de-trabalho-no-azure-machine-learning)
-  - [Passo 2: Utilizar o aprendizado de máquina automatizado para treinar um modelo](#passo-2:-utilizar-o-aprendizado-de-máquina-automatizado-para-treinar-um-modelo)
-  - [Passo 3: Revisar o melhor modelo](#passo-3:-revisar-o-melhor-modelo)
-  - [Passo 4: Implantar e testar o modelo](#passo-4:-implantar-e-testar-o-modelo)
-  - [Passo 5: Testar o serviço implantado](#passo-5:-testar-o-serviço-implantado)
-  - [Passo 6: Limpeza](#passo-6:-limpeza)
+  - [Passo 1: Criar um Espaço de Trabalho no Azure Machine Learning](#passo-1-criar-um-espaço-de-trabalho-no-azure-machine-learning)
+  - [Passo 2: Utilizar o aprendizado de máquina automatizado para treinar um modelo](#passo-2-utilizar-o-aprendizado-de-máquina-automatizado-para-treinar-um-modelo)
+  - [Passo 3: Revisar o melhor modelo](#passo-3-revisar-o-melhor-modelo)
+  - [Passo 4: Implantar e testar o modelo](#passo-4-implantar-e-testar-o-modelo)
+  - [Passo 5: Testar o serviço implantado](#passo-5-testar-o-serviço-implantado)
+  - [Passo 6: Limpeza](#passo-6-limpeza)
 
 # Explorando o Aprendizado de Máquina Automatizado no Azure Machine Learning
 
