@@ -32,7 +32,7 @@ Para usar o Azure Machine Learning, é necessário provisionar um espaço de tra
    - **Assinatura**: Sua assinatura do Azure.
    - **Grupo de recursos**: Crie ou selecione um grupo de recursos.
    - **Nome**: Insira um nome exclusivo para o seu espaço de trabalho.
-   - **Região**: Selecione a região geográfica mais próxima.
+   - **Região**: Selecione a região geográfica, considere a próximidade e o custo de serviço na escolha.
    - **Conta de armazenamento**, **Cofre de chaves**, **Application Insights**: Anote os novos recursos padrão que serão criados para o seu espaço de trabalho.
    - **Registro de contêiner**: Nenhum (será criado automaticamente na primeira vez que você implantar um modelo em um contêiner).
 
@@ -46,19 +46,66 @@ O aprendizado de máquina automático permite que você experimente vários algo
 
 1. No [Azure Machine Learning studio](https://ml.azure.com), vá para a página **Automated ML** em **Authoring**.
 2. Crie um novo trabalho de Automated ML com as seguintes configurações:
-   - **Configurações básicas**:
-     - **Nome do trabalho**: mslearn-bike-automl
-     - **Nome do novo experimento**: mslearn-bike-rental
-     - **Descrição**: Aprendizado de máquina automático para previsão de aluguel de bicicletas
-     - **Tags**: Nenhum
-   - **Tipo de tarefa e dados**:
-     - **Selecionar tipo de tarefa**: Regressão
-     - **Selecionar conjunto de dados**: Crie um novo conjunto de dados chamado **bike-rentals** de arquivos da web com a URL [https://aka.ms/bike-rentals](https://aka.ms/bike-rentals) e as configurações especificadas.
-   - **Configurações de tarefa**:
-     - Configure o tipo de tarefa, conjunto de dados, coluna alvo e configurações adicionais conforme especificado.
-   - **Computação**:
-     - Configure o tipo de computação, tipo de máquina virtual, camada, tamanho e número de instâncias.
 
+      
+   - **Basic settings**:
+     - **Job name**: mslearn-bike-automl
+     - **New experiment name**: mslearn-bike-rental
+     - **Description**: Automated machine learning for bike rental prediction
+     - **Tags**: none
+   - **Task type & data**:
+     - **Select task type**: Regression
+     - **Select dataset**: Create a new dataset with the following settings:
+       - **Data type**:
+         - **Name**: bike-rentals
+         - **Description**: Historic bike rental data
+         - **Type**: Tabular
+       - **Data source**:
+         - Select **From web files**
+       - **Web URL**:
+         - **Web URL**: `https://aka.ms/bike-rentals`
+         - **Skip data validation**: do not select
+       - **Settings**:
+         - **File format**: Delimited
+         - **Delimiter**: Comma
+         - **Encoding**: UTF-8
+         - **Column headers**: Only first file has headers
+         - **Skip rows**: None
+         - **Dataset contains multi-line data**: do not select
+       - **Schema**:
+         - Incluir todas as colunas exceto **Path**
+         - Revise os tipos detectados automaticamente
+     - Selecione **Create**. Depois do dataset ser criado, selecione o **bike-rentals** dataset para continuar a enviar a tarefa ML Automatizada.
+   - **Task settings**:
+     - **Task type**: Regression
+     - **Dataset**: bike-rentals
+     - **Target column**: Rentals (integer)
+     - **Additional configuration settings**:
+       - **Primary metric**: Normalized root mean squared error
+       - **Explain best model**: Não selecionado
+       - **Use all supported models**: Não selecionado. *Você restringirá o trabalho para tentar apenas alguns algoritmos específicos.*
+       - **Allowed models**: *Selecione somente* **RandomForest** and **LightGBM** — *a escolha de muitos parâmetros pode onerar muito em tempo de processamento da tarefa*
+     - **Limits**: Expand this section
+       - **Max trials**: 3
+       - **Max concurrent trials**: 3
+       - **Max nodes**: 3
+       - **Metric score threshold**: 0.085 (*deste modo, se um modelo atingir uma pontuação métrica de erro quadrático médio normalizado de 0,085 ou menos, o trabalho será encerrado.*)
+       - **Timeout**: 15
+       - **Iteration timeout**: 15
+       - **Enable early termination**: Selected
+     - **Validation and test**:
+       - **Validation type**: Train-validation split
+       - **Percentage of validation data**: 10
+       - **Test dataset**: None
+   - **Compute**:
+     - **Select compute type**: Serverless
+     - **Virtual machine type**: CPU
+     - **Virtual machine tier**: Dedicated
+     - **Virtual machine size**: Standard_DS3_V2* 
+     - **Number of instances**: 1
+       
+    \* *If your subscription restricts the VM sizes available to you, choose any available size.*
+   
 3. Envie o trabalho de treinamento. Ele começará automaticamente.
 4. Aguarde a conclusão do trabalho. Isso pode levar algum tempo.
 
@@ -72,7 +119,7 @@ Quando o trabalho de aprendizado de máquina automático for concluído, revise 
 
 
 2. Selecione o texto sob **Nome do algoritmo** para o melhor modelo para visualizar seus detalhes.
-3. Selecione a guia **Métricas** e revise os gráficos **residuais** e **previsto_real**.
+3. Selecione a guia **Métricas** e revise os gráficos **residuais** e **predicted_true**.
 
 ## Passo 4: Implantar e testar o modelo
 
@@ -133,7 +180,7 @@ Agora você pode testar o serviço implantado:
 
 O teste usou os dados de entrada e o modelo que você treinou para retornar o número previsto de aluguéis.
 
-Vamos revisar o que foi feito. Você usou um conjunto de dados históricos de aluguel de bicicletas para treinar um modelo. O modelo prevê o número de alugueres de bicicletas esperados num determinado dia, com base em características sazonais e meteorológicas.
+Vamos revisar o que foi feito. Você usou um conjunto de dados históricos de aluguel de bicicletas para treinar um modelo. O modelo prevê o número de locações de bicicletas esperados num determinado dia, com base em características sazonais e meteorológicas.
      
 ## Passo 6: Limpeza
 
@@ -182,7 +229,7 @@ To use Azure Machine Learning, you need to provision a workspace in Azure within
    - **Subscription**: Your Azure subscription.
    - **Resource Group**: Create or select a resource group.
    - **Name**: Enter a unique name for your workspace.
-   - **Region**: Select the nearest geographic region.
+   - **Region**: Select the geographic region, considere proximity and service cost when choosing.
    - **Storage account**, **Key vault**, **Application Insights**: Note the new default resources that will be created for your workspace.
    - **Container registry**: None (it will be created automatically the first time you deploy a model in a container).
 
@@ -196,18 +243,64 @@ Automated Machine Learning allows you to experiment with various algorithms and 
 
 1. In the [Azure Machine Learning studio](https://ml.azure.com), go to the **Automated ML** page under **Authoring**.
 2. Create a new Automated ML job with the following settings:
+   
    - **Basic settings**:
      - **Job name**: mslearn-bike-automl
      - **New experiment name**: mslearn-bike-rental
      - **Description**: Automated machine learning for bike rental prediction
-     - **Tags**: None
-   - **Task type and data**:
+     - **Tags**: none
+   - **Task type & data**:
      - **Select task type**: Regression
-     - **Select dataset**: Create a new dataset named **bike-rentals** from web files with the URL [https://aka.ms/bike-rentals](https://aka.ms/bike-rentals) and the specified settings.
+     - **Select dataset**: Create a new dataset with the following settings:
+       - **Data type**:
+         - **Name**: bike-rentals
+         - **Description**: Historic bike rental data
+         - **Type**: Tabular
+       - **Data source**:
+         - Select **From web files**
+       - **Web URL**:
+         - **Web URL**: `https://aka.ms/bike-rentals`
+         - **Skip data validation**: do not select
+       - **Settings**:
+         - **File format**: Delimited
+         - **Delimiter**: Comma
+         - **Encoding**: UTF-8
+         - **Column headers**: Only first file has headers
+         - **Skip rows**: None
+         - **Dataset contains multi-line data**: do not select
+       - **Schema**:
+         - Include all columns other than **Path**
+         - Review the automatically detected types
+     - Select **Create**. After the dataset is created, select the **bike-rentals** dataset to continue to submit the Automated ML job.
    - **Task settings**:
-     - Configure task type, dataset, target column, and additional settings as specified.
+     - **Task type**: Regression
+     - **Dataset**: bike-rentals
+     - **Target column**: Rentals (integer)
+     - **Additional configuration settings**:
+       - **Primary metric**: Normalized root mean squared error
+       - **Explain best model**: Unselected
+       - **Use all supported models**: Unselected. *You’ll restrict the job to try only a few specific algorithms.*
+       - **Allowed models**: *Select only* **RandomForest** and **LightGBM** — *normally you’d want to try as many as possible, but each model added increases the time it takes to run the job.*
+     - **Limits**: Expand this section
+       - **Max trials**: 3
+       - **Max concurrent trials**: 3
+       - **Max nodes**: 3
+       - **Metric score threshold**: 0.085 (*so that if a model achieves a normalized root mean squared error metric score of 0.085 or less, the job ends.*)
+       - **Timeout**: 15
+       - **Iteration timeout**: 15
+       - **Enable early termination**: Selected
+     - **Validation and test**:
+       - **Validation type**: Train-validation split
+       - **Percentage of validation data**: 10
+       - **Test dataset**: None
    - **Compute**:
-     - Configure compute type, virtual machine type, tier, size, and number of instances.
+     - **Select compute type**: Serverless
+     - **Virtual machine type**: CPU
+     - **Virtual machine tier**: Dedicated
+     - **Virtual machine size**: Standard_DS3_V2* 
+     - **Number of instances**: 1
+       
+    \* *If your subscription restricts the VM sizes available to you, choose any available size.*
 
 3. Submit the training job. It will start automatically.
 4. Wait for the job to complete. This may take some time.
@@ -220,8 +313,8 @@ Once the automated machine learning job is complete, review the best-trained mod
  
 ![image](https://github.com/G10van1/bike-rental-prediction/assets/17678389/6ca502ce-2bc2-41fc-a2ce-dd249bac2351)
 
-3. Select the text under **Algorithm name** for the best model to view its details.
-4. Go to the **Metrics** tab and review the **residuals** and **predicted_real** charts.
+2. Select the text under **Algorithm name** for the best model to view its details.
+3. Go to the **Metrics** tab and review the **residuals** and **predicted_true** charts.
 
 ## Step 4: Deploy and Test the Model
 
