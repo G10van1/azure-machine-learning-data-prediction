@@ -13,109 +13,113 @@
 Este repositório contém materiais para o módulo Microsoft Learn sobre Fundamentos de IA.
 
 ## Sumário
-- [Explorar o Aprendizado de Máquina Automatizado no Azure Machine Learning](#explorar-o-aprendizado-de-máquina-automatizado-no-azure-machine-learning)
-  - [Criar um Espaço de Trabalho no Azure Machine Learning](#criar-um-espaço-de-trabalho-no-azure-machine-learning)
-  - [Utilizar aprendizado de máquina automatizado para treinar um modelo](#utilizar-aprendizado-de-máquina-automatizado-para-treinar-um-modelo)
-  - [Revisar o melhor modelo](#revisar-o-melhor-modelo)
-  - [Implantar e testar o modelo](#implantar-e-testar-o-modelo)
-  - [Testar o serviço implantado](#testar-o-serviço-implantado)
+  - [Explorando o Aprendizado de Máquina Automatizado no Azure Machine Learning](#explorando-o-aprendizado-de-máquina-automatizado-no-azure-machine-learning)
+  - [Passo 1: Criar um Espaço de Trabalho no Azure Machine Learning](#passo-1:-criar-um-espaço-de-trabalho-no-azure-machine-learning)
+  - [Passo 2: Utilizar o aprendizado de máquina automatizado para treinar um modelo](#passo-2:-utilizar-o-aprendizado-de-máquina-automatizado-para-treinar-um-modelo)
+  - [Passo 3: Revisar o melhor modelo](#passo-3:-revisar-o-melhor-modelo)
+  - [Passo 4: Implantar e testar o modelo](#passo-4:-implantar-e-testar-o-modelo)
+  - [Passo 5: Testar o serviço implantado](#passo-5:-testar-o-serviço-implantado)
   - [Limpeza](#limpeza)
 
-## Navegação
+# Explorando o Aprendizado de Máquina Automático no Azure Machine Learning
 
-- [Microsoft Learn](https://docs.microsoft.com/training/)
-- [Repositório no GitHub](https://github.com/MicrosoftLearning/mslearn-ai-fundamentals)
+Este tutorial guia você pelo processo de explorar aprendizado de máquina automático no Azure Machine Learning. Você aprenderá como treinar, avaliar, implantar e testar um modelo de aprendizado de máquina usando o Azure Machine Learning studio. O exercício completo é esperado levar aproximadamente **30 minutos** para ser concluído.
 
-## Pré-requisitos
+## Passo 1: Criar um espaço de trabalho no Azure Machine Learning
 
-- Conhecimento básico dos serviços do Azure.
-- Assinatura do Azure.
-
-## Explorar o Aprendizado de Máquina Automatizado no Azure Machine Learning
-
-Neste exercício, você utilizará o recurso de aprendizado de máquina automatizado no Azure Machine Learning para treinar e avaliar um modelo de aprendizado de máquina. Em seguida, implantará e testará o modelo treinado.
-
-**Estimativa de Tempo:** Aproximadamente 30 minutos.
-
-### Criar um Espaço de Trabalho no Azure Machine Learning
-
-Para usar o Azure Machine Learning, é necessário provisionar um espaço de trabalho no Azure Machine Learning em sua assinatura do Azure. Em seguida, você poderá usar o Azure Machine Learning Studio para trabalhar com os recursos em seu espaço de trabalho.
-
-**Dica:** Se já tiver um espaço de trabalho no Azure Machine Learning, você pode usá-lo e pular para a próxima tarefa.
+Para usar o Azure Machine Learning, é necessário provisionar um espaço de trabalho no Azure em sua assinatura. Siga estes passos:
 
 1. Faça login no [portal do Azure](https://portal.azure.com) usando suas credenciais da Microsoft.
-2. Selecione **+ Criar um recurso**, procure por *Machine Learning* e crie um novo recurso **Azure Machine Learning** com as configurações especificadas.
+2. Selecione **+ Criar um recurso**, pesquise por **Machine Learning** e crie um novo recurso **Azure Machine Learning** com as seguintes configurações:
+   - **Assinatura**: Sua assinatura do Azure.
+   - **Grupo de recursos**: Crie ou selecione um grupo de recursos.
+   - **Nome**: Insira um nome exclusivo para o seu espaço de trabalho.
+   - **Região**: Selecione a região geográfica mais próxima.
+   - **Conta de armazenamento**, **Cofre de chaves**, **Application Insights**: Anote os novos recursos padrão que serão criados para o seu espaço de trabalho.
+   - **Registro de contêiner**: Nenhum (será criado automaticamente na primeira vez que você implantar um modelo em um contêiner).
 
-    - Assinatura: Sua assinatura do Azure.
-    - Grupo de recursos: Crie ou selecione um grupo de recursos.
-    - Nome: Insira um nome exclusivo para o seu espaço de trabalho.
-    - Região: Selecione a região geográfica mais próxima.
-    - Conta de armazenamento, Cofre de chaves, Insights de aplicativo: Observe os novos recursos padrão que serão criados para o seu espaço de trabalho.
-    - Registro de contêineres: Nenhum (criado automaticamente ao implantar um modelo em um contêiner).
+3. Selecione **Revisar + criar**, em seguida, selecione **Criar**. Aguarde a criação do seu espaço de trabalho (pode levar alguns minutos) e vá para o recurso implantado.
+4. Selecione **Iniciar o estúdio** (ou abra uma nova guia do navegador e acesse [https://ml.azure.com](https://ml.azure.com), e faça login no Azure Machine Learning studio usando sua conta da Microsoft).
+5. No Azure Machine Learning studio, você deverá ver o espaço de trabalho recém-criado. Se não, selecione **Todos os espaços de trabalho** no menu à esquerda e depois selecione o espaço de trabalho que você acabou de criar.
 
-3. Selecione **Revisar + criar**, em seguida, selecione **Criar**. Aguarde a criação do seu espaço de trabalho e vá para o recurso implantado.
-4. Selecione **Iniciar o studio** ou acesse [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true) e faça login.
+## Passo 2: Utilisar o aprendizado de máquina automatizado para treinar um modelo
 
-No Azure Machine Learning Studio, você deve ver o espaço de trabalho recém-criado. Se não estiver vendo, selecione **Todos os espaços de trabalho** no menu à esquerda e, em seguida, selecione o espaço de trabalho que acabou de criar.
+O aprendizado de máquina automático permite que você experimente vários algoritmos e parâmetros para treinar vários modelos. Neste exercício, você usará um conjunto de dados com detalhes históricos de aluguel de bicicletas para prever o número de aluguéis de bicicletas. Siga estes passos:
 
-### Utilizar Aprendizado de Máquina Automatizado para Treinar um Modelo
+1. No [Azure Machine Learning studio](https://ml.azure.com), vá para a página **Automated ML** em **Authoring**.
+2. Crie um novo trabalho de Automated ML com as seguintes configurações:
+   - **Configurações básicas**:
+     - **Nome do trabalho**: mslearn-bike-automl
+     - **Nome do novo experimento**: mslearn-bike-rental
+     - **Descrição**: Aprendizado de máquina automático para previsão de aluguel de bicicletas
+     - **Tags**: Nenhum
+   - **Tipo de tarefa e dados**:
+     - **Selecionar tipo de tarefa**: Regressão
+     - **Selecionar conjunto de dados**: Crie um novo conjunto de dados chamado **bike-rentals** de arquivos da web com a URL [https://aka.ms/bike-rentals](https://aka.ms/bike-rentals) e as configurações especificadas.
+   - **Configurações de tarefa**:
+     - Configure o tipo de tarefa, conjunto de dados, coluna alvo e configurações adicionais conforme especificado.
+   - **Computação**:
+     - Configure o tipo de computação, tipo de máquina virtual, camada, tamanho e número de instâncias.
 
-O aprendizado de máquina automatizado permite que você experimente vários algoritmos e parâmetros para treinar vários modelos e identificar o melhor para seus dados.
+3. Envie o trabalho de treinamento. Ele começará automaticamente.
+4. Aguarde a conclusão do trabalho. Isso pode levar algum tempo.
 
-**Citação:** Os dados usados neste exercício são derivados do [Capital Bikeshare](https://www.capitalbikeshare.com/system-data) e são usados de acordo com o [contrato de licença de dados](https://www.capitalbikeshare.com/data-license-agreement) publicado.
+## Passo 3: Revisar o melhor modelo
 
-1. No [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), visualize a página **Automated ML** em **Authoring**.
-2. Crie um novo trabalho de Automated ML com as configurações especificadas.
+Quando o trabalho de aprendizado de máquina automático for concluído, revise o melhor modelo treinado:
 
-    **Configurações básicas:**
-    - Nome do trabalho: mslearn-bike-automl
-    - Nome do experimento: mslearn-bike-rental
-    - Descrição: Aprendizado de máquina automatizado para previsão de aluguel de bicicletas
-    - Tags: nenhum
+1. Na guia **Visão geral** do trabalho de aprendizado de máquina automático, observe o resumo do melhor modelo.
+2. Selecione o texto sob **Nome do algoritmo** para o melhor modelo para visualizar seus detalhes.
+3. Selecione a guia **Métricas** e revise os gráficos **residuais** e **previsto_real**.
 
-    **Tipo de tarefa e dados:**
-    - Selecione o tipo de tarefa: Regressão
-    - Selecione o conjunto de dados: Crie um novo conjunto de dados com as configurações especificadas.
+## Passo 4: Implantar e testar o modelo
 
-        - Tipo de dado:
-            - Nome: bike-rentals
-            - Descrição: Dados históricos de aluguel de bicicletas
-            - Tipo: Tabular
+1. Na guia **Modelo** para o melhor modelo, selecione **Implantar** e use a opção **Serviço da Web** para implantar o modelo com as configurações especificadas.
+2. Aguarde o início da implantação - isso pode levar alguns segundos.
+3. Aguarde o **Status da implantação** mudar para **Concluído**. Isso pode levar de 5 a 10 minutos.
 
-        - Fonte de dados:
-            - De arquivos da web
+## Passo 5: Testar o serviço implantado
 
-        - URL da web:
-            - URL da web: https://aka.ms/bike-rentals
-            - Pular validação de dados: Não selecione
+Agora você pode testar o serviço implantado:
 
-        - Configurações:
-            - Formato do arquivo: Delimitado
-            - Delimitador: Vírgula
-            - Codificação: UTF-8
-            - Cabeçalhos de coluna: Somente o primeiro arquivo possui cabeçalhos
-            - Pular linhas: Nenhum
-            - Conjunto de dados contém dados de várias linhas: Não selecione
+1. No Azure Machine Learning studio, no menu à esquerda, selecione **Pontos de extremidade** e abra o ponto de extremidade de tempo real **predict-rentals**.
+2. Na página do ponto de extremidade de tempo real **predict-rentals**, visualize a guia **Testar**.
+3. Na painel **Dados de entrada para testar o ponto de extremidade**, substitua o JSON modelo pelo seguinte conjunto de dados de entrada:
 
-        - Esquema:
-            - Incluir todas as colunas, exceto Path
-            - Revisar os tipos detectados automaticamente
+```json
+{
+   "Inputs": { 
+     "data": [
+       {
+         "day": 1,
+         "mnth": 1,   
+         "year": 2022,
+         "season": 2,
+         "holiday": 0,
+         "weekday": 1,
+         "workingday": 1,
+         "weathersit": 2, 
+         "temp": 0.3, 
+         "atemp": 0.3,
+         "hum": 0.3,
+         "windspeed": 0.3 
+       }
+     ]    
+   },   
+   "GlobalParameters": 1.0
+}
+```
 
-        Selecione **Criar**. Após a criação do conjunto de dados, selecione o conjunto de dados **bike-rentals** para continuar a enviar o trabalho Automated ML.
+4. Clique no botão Testar.
+5. Analise os resultados do teste, que incluem o número previsto de aluguéis com base nas características de entrada.
+     
+## Passo 6: Limpeza
 
-    **Configurações da tarefa:**
-    - Tipo de tarefa: Regressão
-    - Conjunto de dados: bike-rentals
-    - Coluna de destino: Aluguéis (inteiro)
-    - Configurações de  configuração adicional:
+- No [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), na guia **Endpoints**, selecione o endpoint **predict-rentals** e escolha **Excluir** para evitar cobranças desnecessárias.
+- Para excluir completamente seu espaço de trabalho e recursos associados, vá para o [portal do Azure](https://portal.azure.com), abra a página de **Grupos de recursos** e exclua o grupo de recursos especificado durante a criação do espaço de trabalho.
 
-        - Métrica primária: Erro quadrático médio normalizado
-        - Explicar o melhor modelo: Não selecionado
-        - Usar todos os modelos suportados: Não selecionado (você restringirá o trabalho a tentar apenas alguns algoritmos específicos.)
-        - Modelos permitidos: Selecione apenas RandomForest e LightGB
+________________________________________________________________________________________________________________________________
 
-
-##________________________________________________________________________________________________________________________________
 ## English Version
 
 ## Rental Bike Prediction
@@ -272,4 +276,5 @@ When the automated machine learning job has completed, you can review the best m
 ### References:
 
 [Explore Automated Machine Learning in Azure Machine Learning](https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/01-machine-learning.html)
+
 [Explore Azure AI Services](https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/02-content-safety.html)
