@@ -21,7 +21,7 @@ ________________________________________________________________________________
 
 # Explorando o Aprendizado de Máquina Automatizado no Azure Machine Learning
 
-Este tutorial guia você pelo processo de explorar aprendizado de máquina automático no Azure Machine Learning. Você aprenderá como treinar, avaliar, implantar e testar um modelo de aprendizado de máquina usando o Azure Machine Learning studio. O exercício completo é esperado levar aproximadamente **30 minutos** para ser concluído.
+Este tutorial é baseado na documentação oficial da Microsoft e em seus tutoriais. Este documento serve de guia no processo de explorar aprendizado de máquina automático no Azure Machine Learning. Você aprenderá como treinar, avaliar, implantar e testar um modelo de aprendizado de máquina usando o Azure Machine Learning studio. O exercício completo é esperado levar aproximadamente **30 minutos** para ser concluído.
 
 ## Passo 1: Criar um espaço de trabalho no Azure Machine Learning
 
@@ -218,7 +218,7 @@ ________________________________________________________________________________
 
 # Exploring Automated Machine Learning in Azure Machine Learning
 
-This tutorial guides you through the process of exploring automated machine learning in Azure Machine Learning. You will learn how to train, evaluate, deploy, and test a machine learning model using the Azure Machine Learning studio. The complete exercise is expected to take approximately **30 minutes** to complete.
+This tutorial is based on official Microsoft documentation and tutorials. This document guides you through the process of exploring automated machine learning in Azure Machine Learning. You will learn how to train, evaluate, deploy, and test a machine learning model using the Azure Machine Learning studio. The complete exercise is expected to take approximately **30 minutes** to complete.
 
 ## Step 1: Create a Workspace in Azure Machine Learning
 
