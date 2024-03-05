@@ -8,7 +8,7 @@ ________________________________________________________________________________
 
 ## Versão em Português
 
-## Predição de Dados Usando o Azure Machine Learning
+# Predição de Dados Usando o Azure Machine Learning
 
 ## Sumário
   - [Explorando o Aprendizado de Máquina Automatizado no Azure Machine Learning](#explorando-o-aprendizado-de-máquina-automatizado-no-azure-machine-learning)
@@ -19,7 +19,7 @@ ________________________________________________________________________________
   - [Passo 5: Testar o serviço implantado](#passo-5-testar-o-serviço-implantado)
   - [Passo 6: Limpeza](#passo-6-limpeza)
 
-# Explorando o Aprendizado de Máquina Automatizado no Azure Machine Learning
+## Explorando o Aprendizado de Máquina Automatizado no Azure Machine Learning
 
 Este tutorial é baseado na documentação oficial da Microsoft e em seus tutoriais. Este documento serve de guia no processo de explorar aprendizado de máquina automático no Azure Machine Learning. Você aprenderá como treinar, avaliar, implantar e testar um modelo de aprendizado de máquina usando o Azure Machine Learning studio. Vamos utilizar o arquivo de dados referente ao aluguel de bicicletas diário. O arquivo formato csv está em anexo neste repositório, existem outros arquivos csv anexos que também podem ser utilizados para fins didáticos.
 
@@ -205,7 +205,7 @@ ________________________________________________________________________________
 
 ## English Version
 
-## Data Prediction Using Azure Machine Learning
+# Data Prediction Using Azure Machine Learning
 
 ## Summary
   - [Exploring Automated Machine Learning in Azure Machine Learning](#exploring-automated-machine-learning-in-azure-machine-learning)
@@ -216,7 +216,7 @@ ________________________________________________________________________________
   - [Step 5: Test the Deployed Service](#step-5-test-the-deployed-service)
   - [Step 6: Cleanup](#step-6-cleanup)
 
-# Exploring Automated Machine Learning in Azure Machine Learning
+## Exploring Automated Machine Learning in Azure Machine Learning
 
 This tutorial is based on official Microsoft documentation and tutorials. This document guides you through the process of exploring automated machine learning in Azure Machine Learning. You will learn how to train, evaluate, deploy, and test a machine learning model using the Azure Machine Learning studio. We will use the data file regarding daily bicycle rental. The csv format file is attached to this repository, there are other csv files attached that can also be used for teaching purposes.
 
