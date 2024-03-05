@@ -1,4 +1,4 @@
-# - azure-machine-learning-data-prediction -
+# azure-machine-learning-data-prediction
 
 ## Escolha o Idioma / Choose Language
 - [English](#data-prediction-using-azure-machine-learning)
