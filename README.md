@@ -217,11 +217,11 @@ Automated Machine Learning allows you to experiment with various algorithms and 
 Once the automated machine learning job is complete, review the best-trained model:
 
 1. On the **Overview** tab of the automated machine learning job, observe the summary of the best model.
-
+ 
 ![image](https://github.com/G10van1/bike-rental-prediction/assets/17678389/6ca502ce-2bc2-41fc-a2ce-dd249bac2351)
 
-2. Select the text under **Algorithm name** for the best model to view its details.
-3. Go to the **Metrics** tab and review the **residuals** and **predicted_real** charts.
+3. Select the text under **Algorithm name** for the best model to view its details.
+4. Go to the **Metrics** tab and review the **residuals** and **predicted_real** charts.
 
 ## Step 4: Deploy and Test the Model
 
