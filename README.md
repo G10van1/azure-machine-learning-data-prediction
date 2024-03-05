@@ -21,7 +21,7 @@ ________________________________________________________________________________
 
 ## Explorando o Aprendizado de Máquina Automatizado no Azure Machine Learning
 
-Este tutorial é baseado na documentação oficial da Microsoft e em seus tutoriais. Este documento serve de guia no processo de explorar aprendizado de máquina automático no Azure Machine Learning. Você aprenderá como treinar, avaliar, implantar e testar um modelo de aprendizado de máquina usando o Azure Machine Learning studio. Vamos utilizar o arquivo de dados referente ao aluguel de bicicletas diário. O arquivo formato csv está em anexo neste repositório, existem outros arquivos csv anexos que também podem ser utilizados para fins didáticos.
+Este tutorial é baseado na documentação oficial da Microsoft e em seus tutoriais. Este documento serve de guia no processo de explorar aprendizado de máquina automatizado no Azure Machine Learning. Você aprenderá como treinar, avaliar, implantar e testar um modelo de aprendizado de máquina usando o Azure Machine Learning studio. Vamos utilizar o arquivo de dados referente ao aluguel de bicicletas diário. O arquivo formato csv está em anexo neste repositório, existem outros arquivos csv anexos que também podem ser utilizados para fins didáticos.
 
 ## Passo 1: Criar um espaço de trabalho no Azure Machine Learning
 
