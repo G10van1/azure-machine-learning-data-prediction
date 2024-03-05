@@ -4,6 +4,8 @@
 - [English](#rental-bike-prediction)
 - [Português](#predição-de-aluguel-de-bicicletas)
 
+________________________________________________________________________________________________________________________________
+
 ## Versão em Português
 
 ## Predição de Aluguel de Bicicletas
@@ -19,9 +21,9 @@ Este repositório contém materiais para o módulo Microsoft Learn sobre Fundame
   - [Passo 3: Revisar o melhor modelo](#passo-3:-revisar-o-melhor-modelo)
   - [Passo 4: Implantar e testar o modelo](#passo-4:-implantar-e-testar-o-modelo)
   - [Passo 5: Testar o serviço implantado](#passo-5:-testar-o-serviço-implantado)
-  - [Limpeza](#limpeza)
+  - [Passo 6: Limpeza](#passo-6:-limpeza)
 
-# Explorando o Aprendizado de Máquina Automático no Azure Machine Learning
+# Explorando o Aprendizado de Máquina Automatizado no Azure Machine Learning
 
 Este tutorial guia você pelo processo de explorar aprendizado de máquina automático no Azure Machine Learning. Você aprenderá como treinar, avaliar, implantar e testar um modelo de aprendizado de máquina usando o Azure Machine Learning studio. O exercício completo é esperado levar aproximadamente **30 minutos** para ser concluído.
 
@@ -115,8 +117,21 @@ Agora você pode testar o serviço implantado:
      
 ## Passo 6: Limpeza
 
-- No [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), na guia **Endpoints**, selecione o endpoint **predict-rentals** e escolha **Excluir** para evitar cobranças desnecessárias.
-- Para excluir completamente seu espaço de trabalho e recursos associados, vá para o [portal do Azure](https://portal.azure.com), abra a página de **Grupos de recursos** e exclua o grupo de recursos especificado durante a criação do espaço de trabalho.
+O serviço da web que você criou está hospedado em uma Instância de Contêiner do Azure. Se você não pretende experimentar mais, siga estas etapas para limpar:
+
+No Azure Machine Learning studio, na guia Pontos de extremidade, selecione o ponto de extremidade predict-rentals. Em seguida, selecione Excluir e confirme que deseja excluir o ponto de extremidade.
+
+Para excluir seu espaço de trabalho:
+
+No portal do Azure, na página Grupos de recursos, abra o grupo de recursos que você especificou ao criar seu espaço de trabalho no Azure Machine Learning.
+Clique em Excluir grupo de recursos, digite o nome do grupo de recursos para confirmar que deseja excluí-lo e selecione Excluir.
+Agora você explorou com sucesso o aprendizado de máquina automático no Azure Machine Learning. Para mais detalhes, visite o repositório GitHub.
+
+## Referências:
+
+[Explore Automated Machine Learning in Azure Machine Learning](https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/01-machine-learning.html)
+
+[Explore Azure AI Services](https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/02-content-safety.html)
 
 ________________________________________________________________________________________________________________________________
 
