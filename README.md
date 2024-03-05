@@ -1,7 +1,7 @@
 # bike-rental-prediction
 
 ## Escolha o Idioma / Choose Language
-- [English](#bike-rental-prediction)
+- [English](#bike_rental_prediction)
 - [Português](#predição-de-aluguel-de-bicicletas)
 
 ________________________________________________________________________________________________________________________________
