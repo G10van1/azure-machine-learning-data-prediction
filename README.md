@@ -1,14 +1,14 @@
-# - bike-rental-prediction -
+# - azure-machine-learning-data-prediction -
 
 ## Escolha o Idioma / Choose Language
-- [English](#bike-rental-prediction)
-- [Português](#predição-de-aluguel-de-bicicletas)
+- [English](#data-prediction-using-azure-machine-learning)
+- [Português](#predição-de-dados-usando-o-azure-machine-learning)
 
 ________________________________________________________________________________________________________________________________
 
 ## Versão em Português
 
-## Predição de Aluguel de Bicicletas
+## Predição de Dados Usando o Azure Machine Learning
 
 ## Sumário
   - [Explorando o Aprendizado de Máquina Automatizado no Azure Machine Learning](#explorando-o-aprendizado-de-máquina-automatizado-no-azure-machine-learning)
@@ -21,7 +21,7 @@ ________________________________________________________________________________
 
 # Explorando o Aprendizado de Máquina Automatizado no Azure Machine Learning
 
-Este tutorial é baseado na documentação oficial da Microsoft e em seus tutoriais. Este documento serve de guia no processo de explorar aprendizado de máquina automático no Azure Machine Learning. Você aprenderá como treinar, avaliar, implantar e testar um modelo de aprendizado de máquina usando o Azure Machine Learning studio. O exercício completo é esperado levar aproximadamente **30 minutos** para ser concluído.
+Este tutorial é baseado na documentação oficial da Microsoft e em seus tutoriais. Este documento serve de guia no processo de explorar aprendizado de máquina automático no Azure Machine Learning. Você aprenderá como treinar, avaliar, implantar e testar um modelo de aprendizado de máquina usando o Azure Machine Learning studio. Vamos utilizar o arquivo de dados referente ao aluguel de bicicletas diário. O arquivo formato csv está em anexo neste repositório, existem outros arquivos csv anexos que também podem ser utilizados para fins didáticos.
 
 ## Passo 1: Criar um espaço de trabalho no Azure Machine Learning
 
@@ -205,7 +205,7 @@ ________________________________________________________________________________
 
 ## English Version
 
-## Bike Rental Prediction
+## Data Prediction Using Azure Machine Learning
 
 ## Summary
   - [Exploring Automated Machine Learning in Azure Machine Learning](#exploring-automated-machine-learning-in-azure-machine-learning)
@@ -218,7 +218,7 @@ ________________________________________________________________________________
 
 # Exploring Automated Machine Learning in Azure Machine Learning
 
-This tutorial is based on official Microsoft documentation and tutorials. This document guides you through the process of exploring automated machine learning in Azure Machine Learning. You will learn how to train, evaluate, deploy, and test a machine learning model using the Azure Machine Learning studio. The complete exercise is expected to take approximately **30 minutes** to complete.
+This tutorial is based on official Microsoft documentation and tutorials. This document guides you through the process of exploring automated machine learning in Azure Machine Learning. You will learn how to train, evaluate, deploy, and test a machine learning model using the Azure Machine Learning studio. We will use the data file regarding daily bicycle rental. The csv format file is attached to this repository, there are other csv files attached that can also be used for teaching purposes.
 
 ## Step 1: Create a Workspace in Azure Machine Learning
 
