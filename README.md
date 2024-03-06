@@ -132,8 +132,8 @@ Quando o trabalho de aprendizado de máquina automático for concluído, revise 
     Enable authentication: Selected
    ```
    
-3. Aguarde o início da implantação - isso pode levar alguns segundos.
-4. Aguarde o **Status da implantação** mudar para **Concluído**. Isso pode levar de 5 a 10 minutos.
+2. Aguarde o início da implantação - isso pode levar alguns segundos.
+3. Aguarde o **Status da implantação** mudar para **Concluído**. Isso pode levar de 5 a 10 minutos.
 
 ## Passo 5: Testar o serviço implantado
 
@@ -327,8 +327,8 @@ Once the automated machine learning job is complete, review the best-trained mod
     Enable authentication: Selected
    ```
 
-3. Wait for the deployment to start - this may take a few seconds.
-4. Wait for the **Deployment status** to change to **Completed**. This may take 5 to 10 minutes.
+2. Wait for the deployment to start - this may take a few seconds.
+3. Wait for the **Deployment status** to change to **Completed**. This may take 5 to 10 minutes.
 
 ## Step 5: Test the Deployed Service
 
